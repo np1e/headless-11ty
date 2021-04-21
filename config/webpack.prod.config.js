@@ -48,7 +48,7 @@ module.exports = merge(webpackBaseConfig, {
         filename: 'assets/css/[name].[chunkhash].css'
       }),
     new WebpackAssetsManifest({
-      output: path.resolve(process.cwd(), "_data/assets.json"),
+      output: path.resolve(process.cwd(), "src/_data/assets.json"),
 			publicPath: "/",
 			writeToDisk: true,
 			apply(manifest) {
