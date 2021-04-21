@@ -9,7 +9,7 @@
     "dev:server": "npm-run-all --parallel dev:webpack-server dev:eleventy",
     "dev:webpack-server": "npx webpack serve --config ./config/webpack.dev.config.js",
     "dev:eleventy": "npx @11ty/eleventy --config ./config/eleventy.config.js --watch",
-    "build": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm-run-all build:webpack build:eleventy",
     "build:webpack": "npx webpack --config ./config/webpack.prod.config.js",
     "build:eleventy": "npx @11ty/eleventy --config ./config/eleventy.config.js",
     "clean": "rm -rf ./dist",
