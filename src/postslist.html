@@ -1,0 +1,33 @@
+---
+layout: layouts/layout
+title: Posts
+pagination:
+    data: collections.blog
+    size: 2
+permalink: "blog/page-{{ pagination.pageNumber }}/index.html"
+eleventyNavigation:
+    key: Blog
+---
+<h2>{{ title }}</h2>
+<ul class="flex-col space-y-5 postlist">
+    {%- for post in pagination.items -%}
+        <li class="poststub flex justify-between">
+            <a class="text-lg" href="/blog/{{ post.data.title | slug }}">{{ post.data.title }}</a>
+            <div>
+                
+            </div>
+        </li>
+    {%- endfor -%}
+</ul>
+
+<div class="">
+    <ul class="flex justify-center space-x-4 pager">
+        <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+        {%- for pageLink in pagination.hrefs %}
+        <li class="pager__item">
+            <a href="{{ pageLink }}"{% if page.url == pageLink %} aria-current="page"{% endif %}>{{ forloop.index }}</a>
+        </li>
+        {%- endfor %}
+        <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+    </ul>
+</div>
