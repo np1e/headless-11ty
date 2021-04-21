@@ -1,0 +1,32 @@
+<!--
+  The following 2 meta tags *must* come first in the <head>
+  to consistently ensure proper document rendering.
+  Any other head element should come *after* these tags.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title> {% if title %} {{ title }} - {% endif %}{{ site.title }}</title>
+
+<meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+<!-- Control the behavior of search engine crawling and indexing -->
+<meta name="robots" content="index,follow"><!-- All Search Engines -->
+<meta name="googlebot" content="index,follow"><!-- Google Specific -->
+
+<!-- Tells Google not to show the sitelinks search box -->
+<meta name="google" content="nositelinkssearchbox">
+
+<!-- Tells Google not to provide a translation for this document -->
+<meta name="google" content="notranslate">
+
+<!-- Gives a general age rating based on the document's content -->
+<meta name="rating" content="General">
+
+<!-- Allows control over how referrer information is passed -->
+<meta name="referrer" content="no-referrer">
+
+<!-- Helps prevent duplicate content issues -->
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<link href="{{ assets['main.css'] }}" rel="stylesheet" type="text/css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
