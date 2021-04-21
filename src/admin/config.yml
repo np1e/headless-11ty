@@ -18,6 +18,8 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string"}
       - { label: "Publish Date", name: "publish_date", widget: "datetime"}
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "image", required: false}
       - { label: "Body", name: "body", widget: "markdown"}
   - name: "settings"
     label: "Settings"
@@ -35,8 +37,9 @@ collections:
             widget: object
             collapsed: true
             fields:
-              - { label: "Twitter handle", name: "twitter", widget: "string" }
-              - { label: "Social media image", name: "image", widget: "image" }
+              - { label: "Twitter handle", name: "twitter", widget: "string", required: false }
+              - { label: "Social media image", name: "image", widget: "image", required: false }
+              - { label: "Social media image Alt text", name: "image:alt", widget: "string", required: false }
               - { label: "Allow Pinterest pins", name: "pinterest_allow_pin", widget: "boolean" }
 
 
