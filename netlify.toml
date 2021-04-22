@@ -2,5 +2,5 @@
     publish = "dist"
     command = "npm run build"
 
-[context.production]
+[build.environment]
     NODE_ENV = "production"
