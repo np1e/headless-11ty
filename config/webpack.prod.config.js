@@ -1,14 +1,13 @@
 const path = require("path");
-const webpack = require("webpack");
+const paths = require('./paths.js');
 const webpackBaseConfig = require("./webpack.config.js");
 const { merge } = require("webpack-merge");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackAssetsManifest = require('webpack-assets-manifest');
 
-module.exports = merge(webpackBaseConfig, {
+module.exports = merge(webpackBaseConfig,  {
   mode: "production",
   output: {
-    filename: "assets/js/[name].[hash].js",
+    filename: "assets/js/[name].[fullhash].js",
   },
   module: {
     rules: [
@@ -30,7 +29,7 @@ module.exports = merge(webpackBaseConfig, {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                config: path.resolve(__dirname, "postcss.config.js"),
+                config: path.resolve(paths.config, "postcss.config.js"),
                 ident: "postcss",
                 parser: "postcss-scss",
               }
@@ -45,15 +44,7 @@ module.exports = merge(webpackBaseConfig, {
   },
   plugins: [
       new MiniCssExtractPlugin({
-        filename: 'assets/css/[name].[chunkhash].css'
+        filename: 'assets/css/[name].[fullhash].css'
       }),
-    new WebpackAssetsManifest({
-      output: path.resolve(process.cwd(), "src/_data/assets.json"),
-			publicPath: "/",
-			writeToDisk: true,
-			apply(manifest) {
-				manifest.set("year", new Date().getFullYear());
-			},
-    }),
   ],
 });

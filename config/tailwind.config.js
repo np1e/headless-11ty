@@ -1,8 +1,14 @@
+const paths = require('./paths.js');
+const path = require('path');
+
 module.exports = {
-    purge: process.env.NODE_ENV === 'production' ? {
-        enabled: true,
-        content: ['src/**/*.njk', 'src/**/*.js', 'src/**/*.html'],
-    } : {},
+    purge: {
+        content: [
+            path.resolve(paths.src, '**/*.njk'), 
+            path.resolve(paths.src, '**/*.js'), 
+            path.resolve(paths.src, '**/*.html')
+        ],
+    },
     darkMode: false,
     theme: {
         fontFamily: {

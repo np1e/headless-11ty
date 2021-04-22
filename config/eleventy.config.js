@@ -1,4 +1,6 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const path = require('path');
+const paths = require('./paths.js');
 const { minifyHtml } = require('../utils/htmlminify.js')
 
 module.exports = (function(eleventyConfig) {
@@ -18,10 +20,10 @@ module.exports = (function(eleventyConfig) {
 
     return {
         dir: {
-            input: "src",
-			output: "dist",
-			includes: "_includes",
-			data: "_data",
+            input: paths.src,
+            output: paths.dist,
+            includes: "_includes",
+            data: "_data",
         },
         templateFormats: ["html", "njk", "md"],
         htmlTemplateEngine: "njk"

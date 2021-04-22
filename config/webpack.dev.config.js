@@ -1,13 +1,14 @@
 const path = require("path");
+const paths = require('./paths.js');
 const webpack = require("webpack");
 const webpackBaseConfig = require("./webpack.config.js");
 const chokidar = require("chokidar");
 const { merge } = require("webpack-merge");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = merge(webpackBaseConfig, {
   mode: "development",
+  devtool: 'inline-source-map',
   output: {
     filename: 'js/[name].js',
   },
@@ -31,7 +32,7 @@ module.exports = merge(webpackBaseConfig, {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                config: path.resolve(__dirname, "postcss.config.js"),
+                config: path.resolve(paths.config, "postcss.config.js"),
                 ident: "postcss",
                 parser: "postcss-scss",
               }
@@ -48,14 +49,6 @@ module.exports = merge(webpackBaseConfig, {
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
     }),
-    new WebpackAssetsManifest({
-      output: path.resolve(process.cwd(), "src/_data/assets.json"),
-			publicPath: "/",
-			writeToDisk: true,
-			apply(manifest) {
-				manifest.set("year", new Date().getFullYear());
-			},
-    }),
     new webpack.HotModuleReplacementPlugin({
       title: 'Hot Module Replacement',
     })
@@ -71,7 +64,7 @@ module.exports = merge(webpackBaseConfig, {
     },
     hot: true,
     overlay: true,
-    contentBase: [path.resolve(process.cwd(), 'dist/'), path.resolve(process.cwd(), 'src/')],
+    contentBase: [paths.dist, paths.src],
     index: "index.html",
     host: "localhost",
     port: 8080,

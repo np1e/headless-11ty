@@ -1,12 +1,11 @@
 const path = require('path')
-
-// TODO add purgecss
+const paths = require('./paths.js');
 
 module.exports = {
     plugins: {
         'postcss-import': {},
         tailwindcss: {
-            config: path.resolve(__dirname, 'tailwind.config.js')
+            config: path.resolve(paths.config, 'tailwind.config.js')
         },
         autoprefixer: {},
     }
