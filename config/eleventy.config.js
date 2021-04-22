@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const { minifyHtml } = require('../utils/htmlminify.js')
 
 module.exports = (function(eleventyConfig) {
 
@@ -9,6 +10,8 @@ module.exports = (function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./src/admin/config.yml": "./admin/config.yml",
   });
+
+  eleventyConfig.addTransform('htmlmin', minifyHtml);
 
   // Copy Image Folder to /_dist
   eleventyConfig.addPassthroughCopy("./src/assets/img");
