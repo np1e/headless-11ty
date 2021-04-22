@@ -2,7 +2,7 @@
   "author": "Nick Hafkemeyer",
   "title": "headless 11ty",
   "description": "This is a starter project for Eleventy",
-  "url": "headless-11ty.netlify.app",
+  "url": "https://headless-11ty.netlify.app",
   "social": {
     "twitter": "@npie_",
     "pinterest_allow_pin": false
