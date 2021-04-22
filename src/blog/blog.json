@@ -3,5 +3,5 @@
   "tags": [
     "blog"
   ],
-  "permalink": "/blog/{{ title | slug }}/index.html"
+  "permalink": "/blog/posts/{{ title | slug }}/"
 }
