@@ -1,5 +1,8 @@
 # 11ty starter with Netlify CMS
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/np1e/headless-11ty)
+
+
 ## Features
 
 * 11ty
